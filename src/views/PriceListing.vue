@@ -111,7 +111,7 @@ export default {
   &__footer {
     display: flex;
     flex: 1;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     margin-bottom: 5px;
   }

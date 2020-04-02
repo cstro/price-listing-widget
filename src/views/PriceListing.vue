@@ -10,7 +10,10 @@
           <span class="monthly">monthly</span>
         </div>
         <div class="price-column__footer">
-          <a :href="encodeURI(`https://boughtbymany.com?breed=${breed}&postcode=${postcode}&type=${quote.name}`)" class="select-link">Select</a>
+          <a
+            target="_blank"
+            :href="encodeURI(`https://boughtbymany.com?breed=${breed}&postcode=${postcode}&type=${quote.name}`)" class="select-link"
+          >Select</a>
         </div>
       </div>
     </div>

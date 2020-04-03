@@ -35,7 +35,7 @@ export default {
   name: 'PriceListing',
   filters: {
     currency(value) {
-      return `£${value/100}`
+      return Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(value / 100)
     },
   },
   data() {

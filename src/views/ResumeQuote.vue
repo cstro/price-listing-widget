@@ -5,6 +5,7 @@
       <h2>{{ heading }}</h2>
     </div>
     <div v-if="hasQuote">
+      <h3>BoughtByMany can insure her from: {{ quote.price | currency }}</h3>
       <a
         target="_blank"
         :href="`https://boughtbymany.com?resume_token=${token}`"
@@ -12,14 +13,13 @@
       >Continue</a>
     </div>
     <div v-else>
-      <h3>Need pet insurance?</h3>
+      <h3>Looking for the best pet insurance?</h3>
       <a
         target="_blank"
         :href="`https://boughtbymany.com?resume_token=${token}`"
         class="button"
       >Get a quote</a>
     </div>
-
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default {
   name: 'ResumeQuote',
   filters: {
     currency(value) {
-      return `£${value/100}`
+      return Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(value / 100)
     },
   },
   data() {
@@ -47,23 +47,17 @@ export default {
 
     heading() {
       if (this.hasQuote) {
-        return `Your quote for ${this.quote.name}`
+        return `Still need insurance for ${this.quote.name}?`
       }
 
       return 'Pet Insurance From BoughtByMany'
     }
   },
   mounted() {
-    this.token = this.$route.query.token
+    // We will eventually get this value from cookies, at the moment this is just hardcoded for testing.
+    this.token = '12345'
 
-    if (!this.token) {
-      this.loading = false
-      return
-    }
-
-    sdk.getQuoteByToken({
-      token: this.token,
-    }).then(quote => {
+    sdk.getQuoteByToken({ token: this.token }).then(quote => {
       this.loading = false
       this.quote = quote
     })

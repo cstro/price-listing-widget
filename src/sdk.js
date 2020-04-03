@@ -46,7 +46,7 @@ export default {
         if (token !== '12345') {
           reject()
         }
-        resolve({ name: 'Bella' })
+        resolve({ name: 'Bella', price: 8250 })
       }, 2500)
     }))
   }

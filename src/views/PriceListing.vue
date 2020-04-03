@@ -89,7 +89,6 @@ export default {
 }
 
 .price-column {
-  margin: 0 8px;
   flex: 1;
   display: flex;
   flex-direction: row;

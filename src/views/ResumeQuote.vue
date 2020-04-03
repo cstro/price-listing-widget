@@ -5,7 +5,7 @@
       <h2>{{ heading }}</h2>
     </div>
     <div v-if="hasQuote">
-      <h3>BoughtByMany can insure her from: {{ quote.price | currency }}</h3>
+      <h3>BoughtByMany can insure her from {{ quote.price | currency }}</h3>
       <a
         target="_blank"
         :href="`https://boughtbymany.com?resume_token=${token}`"

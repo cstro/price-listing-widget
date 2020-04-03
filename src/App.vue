@@ -15,9 +15,7 @@ export default {
 
 .widget-container {
   height: 100vh;
-  max-height: 200px;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1200px;
 }
 </style>
 

@@ -12,7 +12,7 @@ function createUrl(sub, options) {
 }
 
 export default {
-  getQuoteEstimates(options) {
+  getCatDogQuotes(options) {
     return fetch(createUrl('/quote/cat-dog', options))
       .then(d => d.json())
       .then(data => {
@@ -26,7 +26,7 @@ export default {
       });
   },
 
-  getSwedishQuoteEstimates(options) {
+  getKattHundQuotes(options) {
     return fetch(createUrl('/quote/katt-hund', options))
       .then(d => d.json())
       .then(data => {
@@ -38,5 +38,16 @@ export default {
           };
         });
       });
+  },
+
+  getQuoteByToken({ token }) {
+    return new Promise(((resolve, reject) => {
+      setTimeout(() => {
+        if (token !== '12345') {
+          reject()
+        }
+        resolve({ name: 'Bella' })
+      }, 2500)
+    }))
   }
 }

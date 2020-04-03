@@ -51,7 +51,7 @@ export default {
     this.breed = this.$route.query.breed
     this.postcode = this.$route.query.postcode
 
-    sdk.getQuoteEstimates({
+    sdk.getCatDogQuotes({
       breed: this.breed,
       postcode: this.postcode,
     }).then(quotes => {

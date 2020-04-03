@@ -50,10 +50,16 @@ export default {
   mounted() {
     this.breed = this.$route.query.breed
     this.postcode = this.$route.query.postcode
+    this.gender = this.$route.query.gender
+    this.dob = this.$route.query.dob
+    this.value = this.$route.query.value
 
     sdk.getCatDogQuotes({
       breed: this.breed,
       postcode: this.postcode,
+      gender: this.gender,
+      dob: this.dob,
+      value: this.value,
     }).then(quotes => {
       this.loading = false
       this.quotes = quotes
